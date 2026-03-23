@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Material Dark Palette */
+  --color-bg: #121212;
+  --color-surface: #121212;
+  --color-surface-1: #1e1e1e;
+  --color-surface-2: #232323;
+  --color-surface-3: #2c2c2c;
+  --color-surface-4: #353535;
+  --color-surface-5: #424242;
+
+  --color-primary: #BB86FC;
+  --color-primary-variant: #3700B3;
+  --color-secondary: #03DAC6;
+  --color-error: #CF6679;
+
+  --color-on-primary: #000000;
+  --color-on-secondary: #000000;
+  --color-on-bg: #FFFFFF;
+  --color-on-surface: #FFFFFF;
+  --color-on-error: #000000;
+
+  --color-text-high: rgba(255, 255, 255, 0.87);
+  --color-text-med: rgba(255, 255, 255, 0.60);
+  --color-text-low: rgba(255, 255, 255, 0.38);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-4) transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text-high);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Gantt chart scroll container */
+.gantt-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.gantt-scroll::-webkit-scrollbar-track {
+  background: var(--color-surface-1);
+  border-radius: 3px;
+}
+.gantt-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-surface-4);
+  border-radius: 3px;
+}
+
+/* Glowing pulse animation — uses primary purple */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(187, 134, 252, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(187, 134, 252, 0.6); }
+}
+.glow-pulse {
+  animation: glow-pulse 1.2s ease-in-out infinite;
+}
+
+/* Subtle dot grid bg */
+.grid-bg {
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Input / select base styling */
+input[type="number"],
+select {
+  color-scheme: dark;
+}
+
+/* Range slider track */
+input[type="range"] {
+  accent-color: var(--color-primary);
+}
